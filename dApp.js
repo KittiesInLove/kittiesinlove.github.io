@@ -81,7 +81,7 @@ var accountInterval = setInterval(function() {
   });*/
   // auto refresh address
   $("#myAddress").html(account);
-  if (typeof web3 !== 'undefined') {
+  if (typeof web3.eth.accounts !== 'undefined') {
     $("#checkMetamask").hide();
   } else {
     $("#checkMetamask").show();
