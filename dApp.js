@@ -68,6 +68,9 @@ var accountInterval = setInterval(function() {
   contract.balanceOf(account, function(error, amount){
       return $("#checkBalanceResponse_body").html(String("I own " + amount.toString(10)) + " Kitties:");
   });
+  contract.tokensOfOwner(account, function(error, kitties){
+    return $("#checkMyKittiesResponse_body").html(String(kitties.toString(10)));
+  });
 /*
   // auto buy price refresh
   contract.buyPriceEth(function(error, buypr){
