@@ -82,10 +82,10 @@ var accountInterval = setInterval(function() {
   // auto refresh address
   $("#myAddress").html(account);
   console.log(account);
-  if (account !== 'undefined') {
-    $("#checkMetamask").hide();
-  } else {
+  if (typeof account == 'undefined') {
     $("#checkMetamask").show();
+  } else {
+    $("#checkMetamask").hide();
   }
 
 }, 2000);
