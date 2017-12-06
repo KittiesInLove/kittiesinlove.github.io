@@ -3,10 +3,10 @@ $("#newTokenResponse").hide();
 $("#transferTokenResponse").hide();
 $("#buyTokenResponse").hide();
 $("#sellTokenResponse").hide();
-
+$("#checkMetamask").hide();
 //$("#checkBalanceResponse").hide();
 */
-$("#checkMetamask").hide();
+
 
 // Dentacoin contract address
 var kittyTokenAddress = "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d"
