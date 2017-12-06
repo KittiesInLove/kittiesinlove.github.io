@@ -83,10 +83,10 @@ var accountInterval = setInterval(function() {
   $("#myAddress").html(account);
   if (typeof account == 'undefined') {
     $("#checkMetamask").show();
-    $("#_approve").show();
+    $("#_approve").hide();
   } else {
     $("#checkMetamask").hide();
-    $("#_approve").hide();
+    $("#_approve").show();
   }
 
 }, 2000);
