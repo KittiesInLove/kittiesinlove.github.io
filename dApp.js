@@ -69,7 +69,6 @@ var accountInterval = setInterval(function() {
       return $("#checkBalanceResponse_body").html(String("I own " + amount.toString(10)) + " Kitties:");
   });
   contract.tokensOfOwner(account, function(error, kitties){
-    console.log(kitties);
     return $("#checkMyKittiesResponse_body").html(String(kitties.toString(10)));
   });
 /*
