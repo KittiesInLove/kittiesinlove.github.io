@@ -16,9 +16,9 @@ var kittyTokenAddress = "0x06012c8cf97BEaD5deAe237070F9587f8E7A266d"
 // setup metamask provider
 if(typeof window.web3.currentProvider !== 'undefined') {
     web3.setProvider(window.web3.currentProvider);
+        $("#checkMetamask").show();
 }
 else {
-    //$("#checkMetamask").show();
     web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 }
 
