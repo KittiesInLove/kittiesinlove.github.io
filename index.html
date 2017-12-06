@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sire and breed your cryptokitties privately with friends</title>
+  <title>Sire and breed your CryptoKitties with friends</title>
 </head>
 <body>
   <h1>Sire and breed your cryptokitties privately with friends.</h1>
   <h2 id="checkMetamask">Bitte Kitty-Account in Metamask anmelden!</h2>
   <h4 id="myAddress"></h4>
+
+<!-- Amount of Kitties -->
   <section id="balance" class="">
     <h3 class="" style="font-weight: 300;">Amount of Kitties</h3>
-    <p style="font-size: 24px;" class="">I own </p>
     <div class="cell-sm-12">
       <div id="checkBalanceResponse" class="">
         <h3 id="checkBalanceResponse_body"></h3>
       </div>
-
     </div>
   </section>
+
+<!-- Approval of Siring -->
+<section id="approve" class="text-center section-30">
+        <div class="shell">
+            <h3 class="text-blue" style="font-weight: 300;">Approve</h3>
+            <div class="range range-sm-left">
+                <p style="font-size: 24px;" class="cell-sm-12 text-left text-blue">Approve Siring</p>
+                <p class="text-bold cell-sm-12 text-left text-blue offset-top-15">ETH address of receiver</p>
+                <div class="cell-sm-12">
+                    <div id="checkBalanceResponse" class="form-group">
+                        <input type="text" id="_approveAccount" placeholder="0x0000000000000000000000000000000000000000" class="form-control text-blue"/>
+                        <div class="divider-fullwidth bg-porcelain"></div>
+                    </div>
+                </div>
+                <p class="text-bold cell-sm-12 text-left text-blue offset-top-15">Amount</p>
+                <div class="cell-sm-12">
+                    <div class="form-group">
+                        <input type="number" id="_approveID" placeholder="ID of your Kitty" class="form-control text-blue" style="color: #126585;" />
+                        <div class="divider-fullwidth bg-porcelain"></div>
+                    </div>
+                    <div class="range" style="margin: 0;">
+                        <div class="lead about-text cell-sm-4 cell-md-3 cell-lg-2 offset-top-0 offset-sm-top-0 offset-xl-top-0">
+                            <button id="_approve" class="btn btn-primary btn-block offset-top-35">Approve</button>
+                        </div>
+                        <div id="approveSiringResponse" class="alert alert-success">
+                            <h4>Approve Siring</h4>
+                            <p id="approveSiringResponse_body"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- script section -->
   <script src="jquery321.min.js"></script>
