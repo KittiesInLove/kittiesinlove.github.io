@@ -63,12 +63,11 @@ var accountInterval = setInterval(function() {
     account = web3.eth.accounts[0];
     transactionObject.from = account;
   }
-  /*
-  //auto refresh balance
-  contract.balanceOf(account, function(error, balance){
-      return $("#checkBalanceResponse_body").html(String(balance.toString(10)) + " ٨");
+  //auto refresh amount of Kitties
+  contract.balanceOf(account, function(error, amount){
+      return $("#checkBalanceResponse_body").html(String(amount.toString(10)) + " Kitties.");
   });
-
+/*
   // auto buy price refresh
   contract.buyPriceEth(function(error, buypr){
       var res = "1 ETH = 2 500 000 DCN"
