@@ -60,6 +60,7 @@ web3.eth.getAccounts(function(error, accounts){
 $("#myAddress").html(selectedAccount);
 
 
+
 var account = web3.eth.accounts[0];
 var accountInterval = setInterval(function() {
 
