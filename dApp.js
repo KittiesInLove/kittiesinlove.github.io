@@ -1,11 +1,11 @@
-// hide all messages
+/* hide all messages
 $("#newTokenResponse").hide();
 $("#transferTokenResponse").hide();
 $("#buyTokenResponse").hide();
 $("#sellTokenResponse").hide();
 $("#checkMetamask").hide();
 //$("#checkBalanceResponse").hide();
-
+*/
 
 
 // Dentacoin contract address
@@ -34,7 +34,7 @@ var contractABI =
 // the selected account instance
 //    var selectedAccount;
 
-// setup Token contract factory
+// setup Kitty contract
 var Contract = web3.eth.contract(contractABI);
 
 
@@ -67,7 +67,7 @@ var accountInterval = setInterval(function() {
     account = web3.eth.accounts[0];
     transactionObject.from = account;
   }
-
+  /*
   //auto refresh balance
   contract.balanceOf(account, function(error, balance){
       return $("#checkBalanceResponse_body").html(String(balance.toString(10)) + " ٨");
@@ -82,7 +82,7 @@ var accountInterval = setInterval(function() {
   contract.sellPriceEth(function(error, sellpr){
       var res = (1000000000000000000/sellpr) + " DCN = 1 ETH"
       return $("#_sellAmount").attr('placeholder', res)
-  });
+  }); */
   // auto refresh address
   $("#myAddress").html(account);
 
