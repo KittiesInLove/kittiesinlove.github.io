@@ -115,6 +115,49 @@ $("#_approve").click(function(event){
 
 
 // Breeding
+// check breed
+$("#_checkbreed").click(function(event){
+  event.preventDefault();
+  var _sireID = parseInt($("#_sireID").val());
+  var _breedID = parseInt($("#_breedID").val());
+  tmp  = contract.isSiringPermitted(_sireID, _breedID);
+  return $("#approveBreed_body").html("Breeding OK: " + String(tmp));
+});
 
+// Breed TODO
+$("#_breed").click(function(event){
+    event.preventDefault();
+    var _account = $("#_approveAccount").val(),
+            _sireId = parseInt($("#_approveID").val());
+
+
+    // approve address
+    contract.approveSiring(_account, _sireId, function(error, transactionHash) {
+      if(_sireId < 1) {
+          $("#approveSiringResponse").show();
+          return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
+      }
+      if(_account == "") {
+          $("#approveSiringResponse").show();
+          return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
+      }
+      if(error) {
+        $("#approveSiringResponse").show();
+        return $("#approveSiringResponse_body").html("There was an error approving your Kitty: " + String(error));
+      }
+      $("#approveSiringResponse").show();
+      return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(transactionHash) + "' target='_blank'>Etherscan</a> ");
+    });
+
+    contract.Transfer({}, function(error, result){
+        if(error) {
+            $("#transferTokenResponse").show();
+            return $("#transferTokenResponse_body").html("There was an error transfering your Dentacoins: " + String(error));
+        }
+
+        $("#transferTokenResponse").show();
+        return $("#transferTokenResponse_body").html("Your Dentacoins have been transfered! " + String(result.transactionHash));
+    });
+});
 
 // - Breeding
