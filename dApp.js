@@ -100,6 +100,14 @@ $("#_approve").click(function(event){
 
     // approve address
     contract.approveSiring(_account, _sireId, function(error, transactionHash) {
+      if(_sireId < 1) {
+          $("#approveSiringResponse").show();
+          return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
+      }
+      if(_account == "") {
+          $("#approveSiringResponse").show();
+          return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
+      }
       if(error) {
         $("#approveSiringResponse").show();
         return $("#approveSiringResponse_body").html("There was an error approving your Kitty: " + String(error));
