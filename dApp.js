@@ -56,7 +56,8 @@ web3.eth.getAccounts(function(error, accounts){
     transactionObject.from = selectedAccount;
 });
 
-
+// auto refresh address
+$("#myAddress").html(selectedAccount);
 
 
 var account = web3.eth.accounts[0];
@@ -82,10 +83,10 @@ var accountInterval = setInterval(function() {
   contract.sellPriceEth(function(error, sellpr){
       var res = (1000000000000000000/sellpr) + " DCN = 1 ETH"
       return $("#_sellAmount").attr('placeholder', res)
-  }); */
+  });
   // auto refresh address
   $("#myAddress").html(account);
-
+*/
 }, 2000);
 
 
