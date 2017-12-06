@@ -93,7 +93,7 @@ var accountInterval = setInterval(function() {
     $("#_approve").show();
   }
 
-}, 2000);
+}, 10000);
 
 
 // Approve Siring
