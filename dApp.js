@@ -82,9 +82,9 @@ var accountInterval = setInterval(function() {
   // auto refresh address
   $("#myAddress").html(account);
   if (typeof web3 !== 'undefined') {
-    $("#checkMetamask").show();
-  } else {
     $("#checkMetamask").hide();
+  } else {
+    $("#checkMetamask").show();
   }
 
 }, 2000);
