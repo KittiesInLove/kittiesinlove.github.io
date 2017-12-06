@@ -109,6 +109,8 @@ $("#_approve").click(function(event){
       $("#approveSiringResponse").show();
       return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(transactionHash) + "' target='_blank'>Etherscan</a> ");
     });
+});
+
 //- Approve Siring
 
 
