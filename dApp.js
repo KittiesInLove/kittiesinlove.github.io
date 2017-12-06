@@ -18,7 +18,7 @@ if(typeof window.web3.currentProvider !== 'undefined') {
     web3.setProvider(window.web3.currentProvider);
 }
 else {
-    $("#checkMetamask").show();
+    //$("#checkMetamask").show();
     web3.setProvider(new web3.providers.HttpProvider('http://localhost:8545'));
 }
 
