@@ -102,7 +102,7 @@ $("#_checkBalance").click(function(){
 });
 //- Check balance
 */
-
+/*
 
 
 // Transfer Dentacoins
@@ -208,3 +208,5 @@ $("#_sell").click(function(){
     });
 });
 //- Sell Dentacoins
+
+*/
