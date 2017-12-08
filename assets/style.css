@@ -1,0 +1,134 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Nunito', sans-serif;
+  display: grid;
+  color: #333;
+}
+
+header {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header h1 {
+  font-size: 1.2em;
+  font-weight: normal;
+}
+
+#heart-logo {
+  width: 32px;
+  height: 32px;
+  margin-left: 5px;  
+}
+
+.banner {
+  display: inline-block;
+  width: 100vw;
+  background-color: rgba(211, 80, 115, 0.3);
+  height: 400px;
+}
+
+#checkMetamask, #myAddress{
+  display: inline-block;
+  border-radius: 20px;
+  background-color: hsla(0,0%,100%,.4);
+  padding: 5px 8px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  margin-left: 10px;
+}
+
+#myAddress {
+  margin: 0px;
+  margin-left: 10px;  
+}
+
+.kitties-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.kitty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kitty-container img {
+  margin: 0px 30px 0px 30px;
+  width: 240px;
+  height: auto;
+}
+
+.kitty-container input {
+  border: none;
+  height: 30px;
+  width: 185px;
+  padding: 0 0 0 12px;
+  outline-color: lightblue; 
+  box-shadow: 2px 2px 2px lightslategray; 
+}
+
+.breed-btn-container {
+  width: 40%;
+  margin: auto;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#_checkbreed, #_breed {
+  width: 250px;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  margin: 6px;
+  color: white;
+  font-size: 16px;  
+  transition: 200ms;
+  outline: none;
+  padding: 6px 8px;
+  box-shadow: 2px 2px 2px lightslategray; 
+}
+
+#_checkbreed:hover, #_breed:hover {
+  transform: scale(1.05);
+}
+
+#_checkbreed {
+  background: lightcoral;
+}
+
+#_breed { 
+  background: lightskyblue;
+}
+
+#approveBreed {
+  margin-bottom: 0px;
+  width: 50%;
+  margin: auto;
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  border: 2px solid #e7e6e4;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+footer {
+  /* border-top: 2px solid #e7e6e4; */
+  display: flex;
+  justify-content: center;
+}
