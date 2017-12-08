@@ -165,7 +165,7 @@ $("#_breed").click(function(event){
 // Tip Button
 var MY_ADDRESS = '0x29324031F7b722d2eb8fc7a1023C7033AAC53Cc0'
 
-var tipAmount = parseInt($("#tipAmount").val())
+var tipAmount = $("#tipAmount").val()
 
 var tipButton = document.querySelector('.tip-button')
 tipButton.addEventListener('click', function() {
