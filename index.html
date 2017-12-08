@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -37,14 +36,15 @@
     </div>
   </section>
 
-  <div class="breed-btn-container">
+  <div class="breed-container">
     <button id="_checkbreed" class="btn btn-primary btn-block offset-top-35">Check Breeding</button>
     <button id="_breed" class="btn btn-primary btn-block offset-top-35">Breed</button>
+    <div id="approveBreed" class="alert alert-success">
+      <p>Breeding Approval:</p>
+      <p id="approveBreed_body"></p>
+    </div>
   </div>
-  <div id="approveBreed" class="alert alert-success">
-    <p>Breeding Approval:</p>
-    <p id="approveBreed_body"></p>
-  </div>
+
 
   <div class="container">
     <!-- Amount of Kitties -->
@@ -61,10 +61,10 @@
     <!-- Approval of Siring -->
     <section id="approve" class="text-center section-30">
       <h3>Approve Siring</h3>
-      <h5>ETH address of receiver</h5>
+      <span>ETH address of receiver</span>
       <input type="text" id="_approveAccount" placeholder="0x0000000000000000000000000000000000000000" class="form-control text-blue"
       />
-      <h5 class="">Kitty-ID</h5>
+      <span>Kitty-ID</span>
       <input type="number" id="_approveID" placeholder="ID of your Kitty" class="form-control text-blue" style="color: #126585;"
       />
       <button id="_approve" class="btn btn-primary btn-block offset-top-35">Approve</button>
