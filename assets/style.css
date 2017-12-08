@@ -167,16 +167,16 @@ header h1 {
   width: 304px;
   height: 89px;
   background-size: 100%;
-  background-image: url('images/1_pay_mm_off.png');
+  background-image: url('images/7EBD7139-3C07-4B92-8252-4C0049C3702B.png');
   cursor: pointer;
 }
 
 .tip-button:hover {
-  background-image: url('images/1_pay_mm_over.png');
+  background-image: url('images/7EBD7139-3C07-4B92-8252-4C0049C3702B.png');
 }
 
 .tip-button:active {
-  background-image: url('images/1_pay_mm_off.png');
+  background-image: url('images/7EBD7139-3C07-4B92-8252-4C0049C3702B.png');
 }
 
 footer {
