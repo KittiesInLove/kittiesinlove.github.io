@@ -168,6 +168,7 @@ var MY_ADDRESS = '0x29324031F7b722d2eb8fc7a1023C7033AAC53Cc0'
 var tipButton = document.querySelector('.tip-button')
 tipButton.addEventListener('click', function() {
   var tipAmount = parseFloat($("#tipAmount").val())
+  var tipAmountWei = parseInt(tipAmount * 1000000000000000000)
   console.log(tipAmount)
   if (typeof web3 === 'undefined') {
     return renderMessage('You need to install MetaMask to use this feature.  https://metamask.io')
@@ -177,7 +178,7 @@ tipButton.addEventListener('click', function() {
   web3.eth.sendTransaction({
     to: MY_ADDRESS,
     from: user_address,
-    value: tipAmount,
+    value: tipAmountWei,
   }, function (err, transactionHash) {
     if (err) return renderMessage('Oh no!: ' + err.message)
 
