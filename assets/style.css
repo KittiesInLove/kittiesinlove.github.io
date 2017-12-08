@@ -131,6 +131,15 @@ header h1 {
   grid-area: container;
 }
 
+.tip-container {
+  border: 2px solid #e7e6e4;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  padding: 10px 20px 30px 20px;
+  grid-area: tip-container;
+}
+
 #balance h3 {
   font-weight: normal;
 }
@@ -189,12 +198,13 @@ footer {
   body {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 90px 400px 1fr 1fr 1fr;
+    grid-template-rows: 90px 400px 1fr 1fr 1fr 1fr;
     grid-template-areas: 
     "header header header"
     "banner banner banner"
     ". breed-container ."
     ". container ."
+    ". tip-container ."
     "footer footer footer"
     ;
   }
