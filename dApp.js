@@ -165,10 +165,9 @@ $("#_breed").click(function(event){
 // Tip Button
 var MY_ADDRESS = '0x29324031F7b722d2eb8fc7a1023C7033AAC53Cc0'
 
-var tipAmount = parseFloat($("#tipAmount").val())
-
 var tipButton = document.querySelector('.tip-button')
 tipButton.addEventListener('click', function() {
+  var tipAmount = $("#tipAmount").val()
   if (typeof web3 === 'undefined') {
     return renderMessage('You need to install MetaMask to use this feature.  https://metamask.io')
   }
