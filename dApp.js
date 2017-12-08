@@ -172,7 +172,7 @@ tipButton.addEventListener('click', function() {
   var tipAmount = parseFloat(x)
   var tipAmountWei = parseInt(tipAmount * 1000000000000000000)
   console.log(tipAmount)
-  if (typeof web3 === 'undefined') {
+  if (typeof account == 'undefined') {
     return renderMessage('You need to install MetaMask to use this feature.  https://metamask.io')
   }
 
