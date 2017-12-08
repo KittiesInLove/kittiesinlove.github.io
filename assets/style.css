@@ -163,6 +163,22 @@ header h1 {
   border-bottom: 3px solid lightgray;
 }
 
+.tip-button {
+  width: 304px;
+  height: 89px;
+  background-size: 100%;
+  background-image: url('images/1_pay_mm_off.png');
+  cursor: pointer;
+}
+
+.tip-button:hover {
+  background-image: url('images/1_pay_mm_over.png');
+}
+
+.tip-button:active {
+  background-image: url('images/1_pay_mm_off.png');
+}
+
 footer {
   display: flex;
   justify-content: center;
