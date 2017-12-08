@@ -1,67 +1,91 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>KittiesInLove</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
+
 <body>
-  <h1>Sire and breed your CryptoKitties with friends.</h1>
-  <h2 id="checkMetamask">Please login your Kitty-Account in <a href = "https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank">Metamask</a>..</h2>
-  <h4 id="myAddress"></h4>
+  <header>
+    <h1>Sire and breed your CryptoKitties with friends.</h1>
+    <img id="heart-logo" src="assets/images/heartPinkLargest.svg" alt="heart-logo">
+  </header>
 
-  <br>
-  <br>
-  <br>
-
-  <!-- Amount of Kitties -->
-  <section id="balance" class="">
-    <h3 class="">My Kitties</h3>
-    <div class="cell-sm-12">
-      <div id="checkBalanceResponse" class="">
-        <p id="checkBalanceResponse_body"></p>
-        <p id="checkMyKittiesResponse_body"></p>
+  <section class="banner">
+    <p id="checkMetamask">Please login your Kitty-Account in
+      <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank">Metamask</a>...
+    </p>
+    <br>
+    <p id="myAddress">Your address: </p>
+    <div id="approve" class="text-center section-30">
+      <div class="kitties-container">
+        <div class="kitty-container">
+          <img id="dame-logo" src="assets/images/kitty-love-1.svg">
+          <input type="number" id="_breedID" placeholder="ID of your to-be-mother Kitty" class="form-control text-blue" />
+        </div>
+        <div class="kitty-container">
+          <img id="dame-logo" src="assets/images/kitty-love-2.svg">
+          <input type="number" id="_sireID" placeholder="ID of siring Kitty" class="form-control text-blue" />
+        </div>
       </div>
     </div>
   </section>
 
-  <br>
-  <br>
-  <br>
+  <div class="breed-container">
+    <button id="_checkbreed" class="btn btn-primary btn-block offset-top-35">Check Breeding</button>
+    <button id="_breed" class="btn btn-primary btn-block offset-top-35">Breed</button>
+    <div id="approveBreed" class="alert alert-success">
+      <p>Breeding Approval:</p>
+      <p id="approveBreed_body"></p>
+    </div>
+  </div>
 
-  <!-- Approval of Siring -->
-  <section id="approve" class="text-center section-30">
-    <h3>Approve Siring</h3>
-    <h5>ETH address of receiver</h5>
-      <input type="text" id="_approveAccount" placeholder="0x0000000000000000000000000000000000000000" class="form-control text-blue"/>
-    <h5 class="">Kitty-ID</h5>
-      <input type="number" id="_approveID" placeholder="ID of your Kitty" class="form-control text-blue" style="color: #126585;" />
-        <button id="_approve" class="btn btn-primary btn-block offset-top-35">Approve</button>
+
+  <div class="container">
+    <!-- Amount of Kitties -->
+    <section id="balance" class="">
+      <h3 class="">My Kitties</h3>
+      <div class="cell-sm-12">
+        <div id="checkBalanceResponse" class="">
+          <p id="checkBalanceResponse_body"></p>
+          <p id="checkMyKittiesResponse_body"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approval of Siring -->
+    <section id="approve" class="text-center section-30">
+      <h3>Approve Siring</h3>
+      <span>ETH address of receiver</span>
+      <input type="text" id="_approveAccount" placeholder="0x0000000000000000000000000000000000000000" class="form-control text-blue"
+      />
+      <span>Kitty-ID</span>
+      <input type="number" id="_approveID" placeholder="ID of your Kitty" class="form-control text-blue" style="color: #126585;"
+      />
+      <button id="_approve" class="btn btn-primary btn-block offset-top-35">Approve</button>
       <div id="approveSiringResponse" class="">
         <h4>Approve Siring</h4>
         <p id="approveSiringResponse_body"></p>
       </div>
-  </section>
+    </section>
+  </div>
 
-  <br>
-  <br>
-  <br>
-
-  <!-- Breed -->
-  <section id="approve" class="text-center section-30">
-    <h3>Breed your Kittie</h3>
-    <h5 class="">Kitty-ID</h5>
-      <input type="number" id="_breedID" placeholder="ID of your to-be-mother Kitty" class="form-control text-blue" style="color: #126585;" />
-      <input type="number" id="_sireID" placeholder="ID of siring Kitty" class="form-control text-blue" style="color: #126585;" />
-        <button id="_checkbreed" class="btn btn-primary btn-block offset-top-35">Check breeding</button>
-        <button id="_breed" class="btn btn-primary btn-block offset-top-35">Breed</button>
-        <div id="approveBreed" class="alert alert-success">
-          <h4>Breeding Approval:</h4>
-          <p id="approveBreed_body"></p>
-        </div>
-
-  </section>
+  <footer>
+    <p> Check source code on
+      <a href="https://github.com/KittiesInLove/kittiesinlove.github.io">
+        Github
+      </a>
+    </p>
+  </footer>
 
   <!-- script section -->
   <script src="jquery321.min.js"></script>
   <script src="dApp.js"></script>
 </body>
+
 </html>
