@@ -167,7 +167,9 @@ var MY_ADDRESS = '0x29324031F7b722d2eb8fc7a1023C7033AAC53Cc0'
 
 var tipButton = document.querySelector('.tip-button')
 tipButton.addEventListener('click', function() {
-  var tipAmount = parseFloat($("#tipAmount").val())
+  var x = $("#tipAmount").val()
+  x = x.replace( /,/,"." );
+  var tipAmount = parseFloat(x)
   var tipAmountWei = parseInt(tipAmount * 1000000000000000000)
   console.log(tipAmount)
   if (typeof web3 === 'undefined') {
