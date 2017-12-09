@@ -97,12 +97,13 @@ $("#_approve").click(function(event){
     console.log("Approve Details", _account, _sireId);
 
     // approve address
-    contract.approveSiring(_account, _sireId, function(_hash, _valid) {
-      if(_sireId < 1) {
+    contract.approveSiring(_account, _sireId, function(_hash, _hash, _test) {
+      console.log(_hash, _hash, _test);
+      if(_sireId < 1 || isNaN(_sireId)) {
           $("#approveSiringResponse").show();
           return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
       }
-      if(_account == "") {
+      if(isNaN(_account)) {
           $("#approveSiringResponse").show();
           return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
       }
@@ -153,34 +154,7 @@ $("#_breed").click(function(event){
             _sireId = parseInt($("#_approveID").val());
 
 
-    // approve address
-    contract.approveSiring(_account, _sireId, function(error, transactionHash, test) {
-      console.log(error, transactionHash, test);
-      if(_sireId < 1 || isNaN(_sireId)) {
-          $("#approveSiringResponse").show();
-          return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
-      }
-      if(isNaN(_account)) {
-          $("#approveSiringResponse").show();
-          return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
-      }
-      if(error) {
-        $("#approveSiringResponse").show();
-        return $("#approveSiringResponse_body").html("There was an error approving your Kitty: " + String(error));
-      }
-      $("#approveSiringResponse").show();
-      return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(transactionHash) + "' target='_blank'>Etherscan</a> ");
-    });
 
-    contract.Transfer({}, function(error, result){
-        if(error) {
-            $("#transferTokenResponse").show();
-            return $("#transferTokenResponse_body").html("There was an error transfering your Dentacoins: " + String(error));
-        }
-
-        $("#transferTokenResponse").show();
-        return $("#transferTokenResponse_body").html("Your Dentacoins have been transfered! " + String(result.transactionHash));
-    });
 });
 
 // - Breeding
