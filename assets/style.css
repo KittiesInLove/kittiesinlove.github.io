@@ -8,12 +8,13 @@ body {
   color: #333;
   display: grid;
   grid-template-columns: .2fr 2fr .2fr;
-  grid-template-rows: 90px 700px 1fr 1fr 1fr;
+  grid-template-rows: 90px 700px 1fr 1fr 1fr 1fr;
   grid-template-areas: 
   "header header header"
   "banner banner banner"
   ". breed-container ."
   ". container ."
+  ". tip-container ."
   "footer footer footer"
   ;
 }
