@@ -127,13 +127,12 @@ $("#_checkbreed").click(function(event){
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
 
-
+  if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
+      $("#approveBreedResponse").show();
+      return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
+  }
 
   contract.canBreedWith(_sireID, _breedID, function(_hash, _valid) {
-    if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
-        $("#approveBreedResponse").show();
-        return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
-    }
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
