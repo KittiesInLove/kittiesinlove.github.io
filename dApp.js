@@ -135,7 +135,7 @@ $("#_checkbreed").click(function(event){
   contract.canBreedWith(_breedID, _sireID, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
-      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
+      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they can't fall in love, yet");
       console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
@@ -159,7 +159,7 @@ $("#_breed").click(function(event){
   contract.breedWithAuto(_breedID, _sireID, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
-      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
+      return $("#approveBreedResponse_body").html("Error: Hm no, it seems that they're snuggling only");
       console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
