@@ -132,7 +132,7 @@ $("#_checkbreed").click(function(event){
 
   contract.canBreedWith(_sireID, _breedID, function(_hash, _valid) {
           console.log(_sireID);
-    if(_sireID < 1 || _breedID < 1 || _sireID == NaN || _breedID == NaN) {
+    if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
         $("#approveBreedResponse").show();
         return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
     }
