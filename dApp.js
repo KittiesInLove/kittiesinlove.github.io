@@ -97,8 +97,8 @@ $("#_approve").click(function(event){
     console.log("Approve Details", _account, _sireId);
 
     // approve address
-    contract.approveSiring(_account, _sireId, function(_hash, _hash, _test) {
-      console.log(_hash, _hash, _test);
+    contract.approveSiring(_account, _sireId, function(_hash, _valid, _test) {
+      console.log(_hash, _valid, _test);
       if(_sireId < 1 || isNaN(_sireId)) {
           $("#approveSiringResponse").show();
           return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
