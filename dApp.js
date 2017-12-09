@@ -138,7 +138,7 @@ $("#_checkbreed").click(function(event){
       return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet: " + String(error));
     }
     $("#approveBreedResponse").show();
-    return $("#approveBreed_body").html("Breeding OK");
+    return $("#approveBreedResponse_body").html("Breeding OK");
   });
 });
 
