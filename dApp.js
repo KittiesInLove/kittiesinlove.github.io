@@ -132,7 +132,7 @@ $("#_checkbreed").click(function(event){
       return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
   }
 
-  contract.canBreedWith(_sireID, _breedID, function(_hash, _valid) {
+  contract.canBreedWith(_breedID, _sireID, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
@@ -146,12 +146,26 @@ $("#_checkbreed").click(function(event){
 
 // Breed TODO
 $("#_breed").click(function(event){
-    event.preventDefault();
-    var _account = $("#_approveAccount").val(),
-            _sireId = parseInt($("#_approveID").val());
+  $("#approveBreedResponse").hide();
+  event.preventDefault();
+  var _sireID = parseInt($("#_sireID").val());
+  var _breedID = parseInt($("#_breedID").val());
 
+  if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
+      $("#approveBreedResponse").show();
+      return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
+  }
 
-
+  contract.breedWithAuto(_breedID, _sireID, function(_hash, _valid) {
+    if(!_valid) {
+      $("#approveBreedResponse").show();
+      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
+      console.log("Breeding test", _hash, _valid);
+    }
+    $("#approveBreedResponse").show();
+    return $("#approveBreedResponse_body").html("Breeding OK");
+    console.log("Breeding test", _hash, _valid);
+  });
 });
 
 // - Breeding
