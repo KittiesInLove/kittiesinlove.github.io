@@ -48,6 +48,7 @@ var transactionObject = {
     gas: 100000
 };
 
+
 // auto get accounts
 web3.eth.getAccounts(function(error, accounts){
     console.log(accounts);
@@ -82,6 +83,7 @@ var accountInterval = setInterval(function() {
   }
 
 }, 10000);
+// - auto get accounts
 
 
 // Approve Siring
@@ -120,8 +122,17 @@ $("#_checkbreed").click(function(event){
   event.preventDefault();
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
-  tmp  = contract.isSiringPermitted(_sireID, _breedID);
+
+  console.log("Breeding Details", _sireID, _breedID);
+
+  contract.isSiringPermitted(_sireID, _breedID, function(error, transactionHash) {
+    if(_sireId < 1 || _breedID < 1) {
+        $("#approveSiringResponse").show();
+        return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
+    }
+
   return $("#approveBreed_body").html("Breeding OK: " + String(tmp));
+  });
 });
 
 // Breed TODO
