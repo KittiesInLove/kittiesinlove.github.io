@@ -138,7 +138,7 @@ $("#_checkbreed").click(function(event){
       console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
-    return $("#approveBreedResponse_body").html("OK, confirm breeding: <a href='https://etherscan.io/tx/" + String(_valid) + "' target='_blank'>Etherscan</a> " );
+    return $("#approveBreedResponse_body").html("Breeding OK");
     console.log("Breeding test", _hash, _valid);
   });
 });
@@ -162,8 +162,7 @@ $("#_breed").click(function(event){
       console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
-    return $("#approveBreedResponse_body").html("Breeding OK");
-    console.log("Breeding test", _hash, _valid);
+    return $("#approveBreedResponse_body").html("OK, confirm breeding: <a href='https://etherscan.io/tx/" + String(_valid) + "' target='_blank'>Etherscan</a> ");
   });
 });
 
