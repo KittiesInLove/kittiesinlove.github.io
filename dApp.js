@@ -89,6 +89,7 @@ var accountInterval = setInterval(function() {
 
 // Approve Siring
 $("#_approve").click(function(event){
+    $("#approveSiringResponse").hide();
     event.preventDefault();
     var _account = $("#_approveAccount").val(),
             _sireId = parseInt($("#_approveID").val());
@@ -120,6 +121,7 @@ $("#_approve").click(function(event){
 // Breeding
 // check breed
 $("#_checkbreed").click(function(event){
+  $("#approveBreedResponse").hide();
   event.preventDefault();
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
