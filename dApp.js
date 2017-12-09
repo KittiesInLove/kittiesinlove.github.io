@@ -104,14 +104,14 @@ $("#_approve").click(function(event){
     }
 
     // approve address
-    contract.approveSiring(_account, _sireId, function(_hash, _valid, _) {
+    contract.approveSiring(_account, _sireId, function(_hash, _valid, _transactionHash) {
       if(!_valid) {
         $("#approveSiringResponse").show();
-        console.log("Approving test", _hash, _valid);
+        console.log("Approving test", _hash, _valid, _transactionHash);
         return $("#approveSiringResponse_body").html("There was an error approving your Kitty.");
       }
       $("#approveSiringResponse").show();
-      console.log("Approving test", _hash, _valid);
+      console.log("Approving test", _hash, _valid, _transactionHash);
       return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(_hash) + "' target='_blank'>Etherscan</a> ");
 
     });
