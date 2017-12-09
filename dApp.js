@@ -97,7 +97,7 @@ $("#_approve").click(function(event){
     console.log("Approve Details", _account, _sireId);
 
     // approve address
-    contract.approveSiring(_account, _sireId, function(error, transactionHash) {
+    contract.approveSiring(_account, _sireId, function(_hash, _valid) {
       if(_sireId < 1) {
           $("#approveSiringResponse").show();
           return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
@@ -106,12 +106,12 @@ $("#_approve").click(function(event){
           $("#approveSiringResponse").show();
           return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
       }
-      if(error) {
+      if(!_valid) {
         $("#approveSiringResponse").show();
-        return $("#approveSiringResponse_body").html("There was an error approving your Kitty: " + String(error));
+        return $("#approveSiringResponse_body").html("There was an error approving your Kitty.");
       }
       $("#approveSiringResponse").show();
-      return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(transactionHash) + "' target='_blank'>Etherscan</a> ");
+      return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(_hash) + "' target='_blank'>Etherscan</a> ");
     });
 });
 
@@ -136,7 +136,7 @@ $("#_checkbreed").click(function(event){
     }
     if(!_valid) {
       $("#approveBreedResponse").show();
-      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet: " + String(error));
+      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
     }
     $("#approveBreedResponse").show();
     return $("#approveBreedResponse_body").html("Breeding OK");
