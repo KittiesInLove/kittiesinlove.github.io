@@ -7,6 +7,7 @@ $("#checkMetamask").hide();
 //$("#checkBalanceResponse").hide();
 */
 $("#approveSiringResponse").hide();
+$("#approveBreedResponse").hide();
 
 
 // Dentacoin contract address
@@ -127,11 +128,15 @@ $("#_checkbreed").click(function(event){
 
   contract.isSiringPermitted(_sireID, _breedID, function(error, transactionHash) {
     if(_sireId < 1 || _breedID < 1) {
-        $("#approveSiringResponse").show();
-        return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
+        $("#approveBreedResponse").show();
+        return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
     }
-
-  return $("#approveBreed_body").html("Breeding OK: " + String(tmp));
+    if(error) {
+      $("#approveBreedResponse").show();
+      return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet: " + String(error));
+    }
+    $("#approveBreedResponse").show();
+    return $("#approveBreed_body").html("Breeding OK");
   });
 });
 
