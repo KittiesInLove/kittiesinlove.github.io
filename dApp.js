@@ -94,18 +94,17 @@ $("#_approve").click(function(event){
     var _account = $("#_approveAccount").val(),
             _sireId = parseInt($("#_approveID").val());
 
-    console.log("Approve Details", _account, _sireId);
+    if(_sireId < 1 || isNaN(_sireId)) {
+        $("#approveSiringResponse").show();
+        return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
+    }
+    if(_account == "") {
+        $("#approveSiringResponse").show();
+        return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
+    }
 
     // approve address
     contract.approveSiring(_account, _sireId, function(_hash, _valid) {
-      if(_sireId < 1 || isNaN(_sireId)) {
-          $("#approveSiringResponse").show();
-          return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
-      }
-      if(_account == "") {
-          $("#approveSiringResponse").show();
-          return $("#approveSiringResponse_body").html("Error: Empty approval-receiver-address");
-      }
       if(!_valid) {
         $("#approveSiringResponse").show();
         return $("#approveSiringResponse_body").html("There was an error approving your Kitty.");
