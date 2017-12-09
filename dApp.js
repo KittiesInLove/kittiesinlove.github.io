@@ -126,9 +126,10 @@ $("#_checkbreed").click(function(event){
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
 
-  console.log("Breeding Details", _sireID, _breedID);
+
 
   contract.canBreedWith(_sireID, _breedID, function(error, transactionHash) {
+      console.log("Breeding allowed", error, transactionHash);
     if(_sireID < 1 || _breedID < 1) {
         $("#approveBreedResponse").show();
         return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
