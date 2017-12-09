@@ -109,9 +109,11 @@ $("#_approve").click(function(event){
       if(!_valid) {
         $("#approveSiringResponse").show();
         return $("#approveSiringResponse_body").html("There was an error approving your Kitty.");
+        console.log("Approving test", _hash, _valid);
       }
       $("#approveSiringResponse").show();
       return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(_hash) + "' target='_blank'>Etherscan</a> ");
+      console.log("Approving test", _hash, _valid);
     });
 });
 
@@ -129,7 +131,6 @@ $("#_checkbreed").click(function(event){
 
 
   contract.canBreedWith(_sireID, _breedID, function(_hash, _valid) {
-      console.log("Breeding allowed", _hash, _valid);
     if(_sireID < 1 || _breedID < 1) {
         $("#approveBreedResponse").show();
         return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
@@ -137,9 +138,11 @@ $("#_checkbreed").click(function(event){
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm, it seems that they didn't fall in love, yet");
+      console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
     return $("#approveBreedResponse_body").html("Breeding OK");
+    console.log("Breeding test", _hash, _valid);
   });
 });
 
