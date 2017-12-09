@@ -2,7 +2,7 @@
 $("#newTokenResponse").hide();
 
 $("#buyTokenResponse").hide();
-$("#sellTokenResponse").hide()
+$("#sellTokenResponse").hide();
 $("#checkMetamask").hide();
 //$("#checkBalanceResponse").hide();
 */
