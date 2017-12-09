@@ -28,11 +28,11 @@
       <div class="kitties-container">
         <div class="kitty-container">
           <img id="dame-logo" src="assets/images/kitty-love-2.svg">
-          <input type="number" id="_breedID" placeholder="ID of your to-be-mother Kitty" class="form-control text-blue" />
+          <input type="number" id="_breedID" placeholder="ID of your to-be-mother Kitty" class="form-control text-blue" required />
         </div>
         <div class="kitty-container">
           <img id="dame-logo" src="assets/images/kitty-love-1.svg">
-          <input type="number" id="_sireID" placeholder="ID of your friends siring Kitty" class="form-control text-blue" />
+          <input type="number" id="_sireID" placeholder="ID of your friends siring Kitty" class="form-control text-blue" required />
         </div>
       </div>
     </div>
@@ -64,10 +64,10 @@
     <section id="approve" class="text-center section-30">
       <h3>Approve Siring</h3>
       <span>ETH address of receiver</span>
-      <input type="text" id="_approveAccount" placeholder="0x0000000000000000000000000000000000000000" class="form-control text-blue"
+      <input type="text" id="_approveAccount" placeholder="0x0000000000000000000000000000000000000000" class="form-control text-blue" required
       />
       <span>Kitty-ID</span>
-      <input type="number" id="_approveID" placeholder="ID of your Kitty" class="form-control text-blue" style="color: #126585;"
+      <input type="number" id="_approveID" placeholder="ID of your Kitty" class="form-control text-blue" style="color: #126585;" required
       />
       <button id="_approve" class="btn btn-primary btn-block offset-top-35">Approve</button>
       <div id="approveSiringResponse" class="">
@@ -79,7 +79,7 @@
   <div class="tip-container">
     <section class="text-center section-30">
       Thank you for a cute tip:<br>
-      <input type="number" id="tipAmount" placeholder="e.g. 0.01 ETH" class="form-control text-blue" style="color: #126585;"
+      <input type="number" id="tipAmount" placeholder="e.g. 0.01 ETH" class="form-control text-blue" style="color: #126585;" required
       />
       <div class="tip-button"></div>
       <div class="message"></div>
