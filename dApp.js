@@ -104,15 +104,13 @@ $("#_approve").click(function(event){
     }
 
     // approve address
-    contract.approveSiring(_account, _sireId, function(_hash, _valid, _transactionHash) {
+    contract.approveSiring(_account, _sireId, function(_hash, _valid) {
       if(!_valid) {
         $("#approveSiringResponse").show();
-        console.log("Approving test", _hash, _valid, _transactionHash);
         return $("#approveSiringResponse_body").html("There was an error approving your Kitty.");
       }
       $("#approveSiringResponse").show();
-      console.log("Approving test", _hash, _valid, _transactionHash);
-      return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(_hash) + "' target='_blank'>Etherscan</a> ");
+      return $("#approveSiringResponse_body").html("Ok, pending transaction. Give it a minute and check for confirmation on <a href='https://etherscan.io/tx/" + String(_valid) + "' target='_blank'>Etherscan</a> ");
 
     });
 });
@@ -140,7 +138,7 @@ $("#_checkbreed").click(function(event){
       console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
-    return $("#approveBreedResponse_body").html("Breeding OK");
+    return $("#approveBreedResponse_body").html("OK, confirm breeding: <a href='https://etherscan.io/tx/" + String(_valid) + "' target='_blank'>Etherscan</a> " );
     console.log("Breeding test", _hash, _valid);
   });
 });
