@@ -154,7 +154,8 @@ $("#_breed").click(function(event){
 
 
     // approve address
-    contract.approveSiring(_account, _sireId, function(error, transactionHash) {
+    contract.approveSiring(_account, _sireId, function(error, transactionHash, test) {
+      console.log(error, transactionHash, test);
       if(_sireId < 1 || isNaN(_sireId)) {
           $("#approveSiringResponse").show();
           return $("#approveSiringResponse_body").html("Error: Invalid or empty Kitty-ID");
