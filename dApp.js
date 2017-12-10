@@ -155,6 +155,11 @@ $("#_breed").click(function(event){
       return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
   }
 
+  //Get breeding fee for .breedWithAuto
+  var _autoBirthFee = contract.autoBirthFee();
+  console.log("_autoBirthFee: ", _autoBirthFee);
+
+  //Start breeding function
   contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
