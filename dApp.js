@@ -147,8 +147,7 @@ $("#_breed").click(function(event){
   event.preventDefault();
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
-  //var _autoBirthFee = 15000000000000000;
-  //var _autoBirthFee = 7000000000000000;
+  var _autoBirthFee;
 
   if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
       $("#approveBreedResponse").show();
@@ -156,11 +155,13 @@ $("#_breed").click(function(event){
   }
 
   //Get breeding fee for .breedWithAuto
-  var _autoBirthFee = contract.autoBirthFee(function(a, _fee) {
-    _fee = _fee.toNumber();
-    return _fee;
+  contract.autoBirthFee(function(a, _fee) {
+    _autoBirthFee = _fee.toNumber();
+    console.log("innen", _autoBirthFee);
+    return _autoBirthFee;
   });
-console.log(_autoBirthFee);
+console.log("außen", _autoBirthFee);
+
   //Start breeding function
   contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
     if(!_valid) {
