@@ -156,7 +156,7 @@ $("#_breed").click(function(event){
   //Get breeding fee for .breedWithAuto
   contract.autoBirthFee(function(a, _fee) {
     _fee = _fee.toNumber();
-    return console.log("_autoBirthFee: " a, _fee);
+    return console.log("_autoBirthFee: ", a, _fee);
   });
 
   //Start breeding function
