@@ -147,6 +147,8 @@ $("#_breed").click(function(event){
   event.preventDefault();
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
+  //var _autoBirthFee = 15000000000000000;
+  var _autoBirthFee = 7000000000000000;
 
   if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
       $("#approveBreedResponse").show();
@@ -155,12 +157,16 @@ $("#_breed").click(function(event){
 
   //Get breeding fee for .breedWithAuto
   contract.autoBirthFee(function(a, _fee) {
+    if (!_fee) {
+      return _autoBirthFee;
+    }
     _fee = _fee.toNumber();
-    return console.log("_autoBirthFee: ", a, _fee);
+    _autoBirthFee = _fee;
+    return _autoBirthFee;
   });
 
   //Start breeding function
-  contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
+  contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:_autoBirthFee}, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm no, it seems that they're snuggling only");
