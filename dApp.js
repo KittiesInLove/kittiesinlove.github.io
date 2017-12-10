@@ -135,11 +135,9 @@ $("#_checkbreed").click(function(event){
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm, it seems that they can't fall in love, yet");
-      console.log("Breeding test", _hash, _valid);
     }
     $("#approveBreedResponse").show();
     return $("#approveBreedResponse_body").html("Breeding OK");
-    console.log("Breeding test", _hash, _valid);
   });
 });
 
@@ -156,8 +154,10 @@ $("#_breed").click(function(event){
   }
 
   //Get breeding fee for .breedWithAuto
-  var _autoBirthFee = contract.autoBirthFee();
-  console.log("_autoBirthFee: ", _autoBirthFee);
+  contract.autoBirthFee(function(_hash, _autoBirthFee) {
+    return console.log("_autoBirthFee: ", _hash, _autoBirthFee);
+  });
+
 
   //Start breeding function
   contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
