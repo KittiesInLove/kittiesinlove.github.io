@@ -49,7 +49,8 @@ var transactionObject = {
     gas: 100000
 };
 
-var _autoBirthFee = 7000000000000000;
+// set fee for breeding
+var _autoBirthFee = 15000000000000000;
 
 
 // auto get accounts
@@ -84,10 +85,9 @@ var accountInterval = setInterval(function() {
     $("#checkMetamask").hide();
     $("#_approve").show();
   }
-  //Get breeding fee for .breedWithAuto
+  //Renew breeding fee for .breedWithAuto
   contract.autoBirthFee(function(a, _fee) {
     _autoBirthFee = _fee.toNumber();
-    console.log("innen", _autoBirthFee);
     return _autoBirthFee;
   });
 
