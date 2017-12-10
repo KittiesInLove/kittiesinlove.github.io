@@ -8,12 +8,10 @@ body {
   color: #333;
   display: grid;
   grid-template-columns: .2fr 2fr .2fr;
-  grid-template-rows: 90px 700px 1fr 1fr 1fr 1fr;
+  grid-template-rows: 90px 1fr 200px 20px;
   grid-template-areas: 
   "header header header"
   "banner banner banner"
-  ". breed-container ."
-  ". container ."
   ". tip-container ."
   "footer footer footer"
   ;
@@ -40,8 +38,12 @@ header h1 {
 }
 
 .banner {
-  background-color: rgba(211, 80, 115, 0.3);
   grid-area: banner;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 400ms;
+  padding: 10px 0px;
 }
 
 #checkMetamask, #myAddress{
@@ -57,6 +59,38 @@ header h1 {
 #myAddress {
   margin: 0px;
   margin-left: 10px;  
+}
+
+.tab-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#approve-tab, #breed-tab {
+  display: inline-block;
+  padding: 5px 0px;
+  margin: 15px;
+  font-size: 1.15em;
+  color: palevioletred;
+  transition-duration: 200ms;
+}
+
+#approve-tab:hover, #breed-tab:hover {
+  border-bottom: 2px solid white;
+  color: white;
+  cursor: pointer;
+}
+
+.breed-kitties-container {
+  display: none;
+  background: #f8f8f8;
+  border-radius: 4px;
+  padding: 10px 20px 30px 20px;
+  background: #f9f9f9;
+  width: 80%;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .kitties-container {
@@ -96,23 +130,25 @@ header h1 {
   flex-direction: column;
 }
 
-
 #_checkbreed, #_breed {
-  width: 250px;
-  border: none;
-  border-radius: 0px;
+  box-shadow: 2px 2px 2px lightslategray;  
+  margin-top: 10px; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  box-sizing: content-box;
+  background-color: #1abc9c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  outline: 0 !important;
+  border: 0;  
   cursor: pointer;
-  margin: 6px;
-  color: white;
-  font-size: 16px;  
-  transition: 200ms;
-  outline: none;
-  padding: 6px 8px;
-  box-shadow: 2px 2px 2px lightslategray; 
-}
-
-#_checkbreed:hover, #_breed:hover {
-  transform: scale(1.05);
+  width: 250px;
 }
 
 #_checkbreed {
@@ -120,22 +156,39 @@ header h1 {
 }
 
 #_breed { 
-  background: lightskyblue;
+  background-color: #1abc9c;
+  
 }
 
-.container {
-  border: 2px solid #e7e6e4;
+#_checkbreed:hover, #_breed:hover {
+  border-bottom: 3px solid lightgray;
+}
+
+#approve-header {
+  color: white;
+  font-weight: normal;
+  font-size: 1.2em;
+  padding: 2px 5px;
+  background: #f8f8f8;
+  color: #333;
+  border-radius: 3px;
+  /* margin: 0px 20px; */
+}
+
+.approve-siring-container {
   margin-top: 20px;
   margin-bottom: 20px;
   border-radius: 4px;
   padding: 10px 20px 30px 20px;
-  grid-area: container;
+  background: #f9f9f9;
+  width: 80%;
+  min-height: 250px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .tip-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 10px 20px 30px 20px;
+  padding: 10px;
+  margin: auto;
   grid-area: tip-container;
 }
 
@@ -150,7 +203,7 @@ header h1 {
 #_approveAccount, #_approveID {
   border: none;
   height: 30px;
-  width: 185px;
+  width: 170px;
   padding: 0 0 0 12px;
   outline-color: lightblue; 
   border: 2px solid #e7e6e4;
@@ -158,13 +211,23 @@ header h1 {
 }
 
 #_approve {
-  border: none;
-  height: 33px;
-  border: 2px solid #e7e6e4;
-  font-size: 14px; 
+  margin-top: 10px; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  box-sizing: content-box;
+  background-color: #1abc9c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  outline: 0 !important;
+  border: 0;
+  transition: all .2s ease-in-out;
   cursor: pointer;
-  transition: all .2s cubic-bezier(.06,.67,.37,.99);
-  outline: none; 
 }
 
 #_approve:hover {
@@ -190,6 +253,7 @@ header h1 {
 footer {
   display: flex;
   justify-content: center;
+  align-items: center;
   grid-area: footer;
 }
 
@@ -197,14 +261,20 @@ footer {
   body {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 90px 400px 1fr 1fr 1fr 1fr;
+    grid-template-rows: 90px 1fr 100px 40px;
     grid-template-areas: 
     "header header header"
     "banner banner banner"
-    ". breed-container ."
-    ". container ."
     ". tip-container ."
     "footer footer footer"
     ;
+  }
+
+  .breed-kitties-container {
+    width: 55%;
+  }
+
+  .approve-siring-container {
+    width: 40%;
   }
 }
