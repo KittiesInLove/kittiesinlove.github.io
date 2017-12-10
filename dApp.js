@@ -160,9 +160,9 @@ $("#_breed").click(function(event){
     _fee = _fee.toNumber();
     return _fee;
   });
-
+console.log(_autoBirthFee);
   //Start breeding function
-  contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:_autoBirthFee}, function(_hash, _valid) {
+  contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm no, it seems that they're snuggling only");
