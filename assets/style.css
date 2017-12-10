@@ -43,6 +43,7 @@ header h1 {
   flex-direction: column;
   align-items: center;
   transition: 400ms;
+  padding: 10px 0px;
 }
 
 #checkMetamask, #myAddress{
@@ -88,7 +89,7 @@ header h1 {
   border-radius: 4px;
   padding: 10px 20px 30px 20px;
   background: #f9f9f9;
-  width: 800px;
+  width: 80%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -171,6 +172,7 @@ header h1 {
   background: #f8f8f8;
   color: #333;
   border-radius: 3px;
+  /* margin: 0px 20px; */
 }
 
 .approve-siring-container {
@@ -179,8 +181,8 @@ header h1 {
   border-radius: 4px;
   padding: 10px 20px 30px 20px;
   background: #f9f9f9;
-  width: 600px;
-  height: 200px;
+  width: 80%;
+  min-height: 250px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
@@ -259,12 +261,20 @@ footer {
   body {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 90px 1fr 100px 60px;
+    grid-template-rows: 90px 1fr 100px 40px;
     grid-template-areas: 
     "header header header"
     "banner banner banner"
     ". tip-container ."
     "footer footer footer"
     ;
+  }
+
+  .breed-kitties-container {
+    width: 55%;
+  }
+
+  .approve-siring-container {
+    width: 40%;
   }
 }
