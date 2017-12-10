@@ -49,6 +49,8 @@ var transactionObject = {
     gas: 100000
 };
 
+var _autoBirthFee = 7000000000000000;
+
 
 // auto get accounts
 web3.eth.getAccounts(function(error, accounts){
@@ -82,6 +84,12 @@ var accountInterval = setInterval(function() {
     $("#checkMetamask").hide();
     $("#_approve").show();
   }
+  //Get breeding fee for .breedWithAuto
+  contract.autoBirthFee(function(a, _fee) {
+    _autoBirthFee = _fee.toNumber();
+    console.log("innen", _autoBirthFee);
+    return _autoBirthFee;
+  });
 
 }, 10000);
 // - auto get accounts
@@ -147,23 +155,17 @@ $("#_breed").click(function(event){
   event.preventDefault();
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
-  var _autoBirthFee;
 
   if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Invalid or empty Kitty-ID");
   }
 
-  //Get breeding fee for .breedWithAuto
-  contract.autoBirthFee(function(a, _fee) {
-    _autoBirthFee = _fee.toNumber();
-    console.log("innen", _autoBirthFee);
-    return _autoBirthFee;
-  });
+
 console.log("außen", _autoBirthFee);
 
   //Start breeding function
-  contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
+  contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:_autoBirthFee}, function(_hash, _valid) {
     if(!_valid) {
       $("#approveBreedResponse").show();
       return $("#approveBreedResponse_body").html("Error: Hm no, it seems that they're snuggling only");
