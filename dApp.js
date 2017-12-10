@@ -148,7 +148,7 @@ $("#_breed").click(function(event){
   var _sireID = parseInt($("#_sireID").val());
   var _breedID = parseInt($("#_breedID").val());
   //var _autoBirthFee = 15000000000000000;
-  var _autoBirthFee = 7000000000000000;
+  //var _autoBirthFee = 7000000000000000;
 
   if(_sireID < 1 || _breedID < 1 || isNaN(_sireID) || isNaN(_breedID)) {
       $("#approveBreedResponse").show();
@@ -156,7 +156,7 @@ $("#_breed").click(function(event){
   }
 
   //Get breeding fee for .breedWithAuto
-  contract.autoBirthFee(function(a, _fee) {
+  var _autoBirthFee = contract.autoBirthFee(function(a, _fee) {
     _fee = _fee.toNumber();
     _autoBirthFee = _fee;
     return _autoBirthFee;
