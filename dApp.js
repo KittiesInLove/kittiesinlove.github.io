@@ -154,10 +154,10 @@ $("#_breed").click(function(event){
   }
 
   //Get breeding fee for .breedWithAuto
-  contract.autoBirthFee(function(_hash, _autoBirthFee) {
+  var fee = contract.autoBirthFee(function(_hash, _autoBirthFee) {
     return console.log("_autoBirthFee: ", _hash, _autoBirthFee);
   });
-
+console.log(fee);
 
   //Start breeding function
   contract.breedWithAuto(_breedID, _sireID, {from:web3.eth.accounts[0], value:15000000000000000}, function(_hash, _valid) {
